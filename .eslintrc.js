@@ -19,7 +19,7 @@ module.exports = {
       'singleQuote': true,
       'semi': false,
       'trailingComma': 'all',
-      'printWidth': 90
+      'printWidth': 110
     }]
   }
 }

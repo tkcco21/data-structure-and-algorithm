@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node",
     "lint": "eslint src/**/*.ts",
-    "mocha": "mocha --require espower-typescript/guess \"**/__test__/**/*.ts\""
+    "mocha": "mocha --require espower-typescript/guess \"**/__test__/**/*.ts\"",
+    "mocha-sp": "mocha --require espower-typescript/guess"
   },
   "keywords": [],
   "author": "",
