@@ -50,9 +50,9 @@
   - [ ] `B` バイナリ検索 - ソートされた配列で検索
   - [ ] `B` 補間探索 - 一様分布のソート配列で検索する
 - **並べ替え**
-  - [x] `B` [バブルソート](../src/sort/bubble/index.ts)
-  - [x] `B` [選択ソート](../src/sort/selection/index.ts)
-  - [ ] `B` 挿入ソート
+  - [x] `B` [バブルソート](../src/algorithm/sort/bubble/index.ts)
+  - [x] `B` [選択ソート](../src/algorithm/sort/selection/index.ts)
+  - [x] `B` [挿入ソート](../src/algorithm/sort/insertion/index.ts)
   - [ ] `B` ヒープソート
   - [ ] `B` マージソート
   - [ ] `B` クイックソート -インプレースおよび非インプレース・インプリメンテーション
