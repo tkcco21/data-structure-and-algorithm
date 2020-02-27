@@ -15,6 +15,8 @@ module.exports = {
   },
   'rules': {
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
     'prettier/prettier': ['error', {
       'singleQuote': true,
       'semi': false,
