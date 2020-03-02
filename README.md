@@ -2,7 +2,7 @@
 
 データ構造とアルゴリズムの学習のためのリポジトリです。
 
-↓こちらのリポジトリを参考にしています（コードの写経はしない）。  
+↓こちらのリポジトリを参考にしています。  
 [trekhleb / javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)  
 ※ 説明やリストは丸々頂いています。
 
