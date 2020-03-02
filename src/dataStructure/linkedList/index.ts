@@ -1,7 +1,7 @@
 import { ILinkedListNode, LinkedListNode } from './linkedListNode'
 
 type FindParams = {
-  value: any
+  value?: any
   callback?: (v: any) => any
 }
 
@@ -11,14 +11,14 @@ interface ILinkedList {
   tail: any
   prepend: (v: any) => ILinkedList
   append: (v: any) => ILinkedList
+  find: (findParams: FindParams) => ILinkedListNode | null
   delete: (v: any) => ILinkedListNode | null
-  // deleteTail: (v: any) => this
-  // deleteHead: (v: any) => this
-  // find: (findParams: FindParams) => ILinkedListNode | null
-  // fromArray: (v: any) => this
+  deleteHead: () => ILinkedListNode | null
+  deleteTail: () => ILinkedListNode | null
+  fromArray: (v: any[]) => ILinkedList
   toArray: (v: any) => ILinkedListNode[]
+  reverse: () => ILinkedList
   toString: (v: any) => string
-  // reverse: (v: any) => this
 }
 
 export class LinkedList implements ILinkedList {
@@ -57,6 +57,24 @@ export class LinkedList implements ILinkedList {
     return this
   }
 
+  public find({ value, callback }: FindParams): ILinkedListNode | null {
+    // this.headがないのは連結リストがないということなのでnullを返す
+    if (!this.head) return null
+
+    // this.headから順番に検索
+    let currentNode = this.head
+    while (currentNode) {
+      if (callback && callback(currentNode.value)) {
+        return currentNode
+      }
+      if (value !== null && currentNode.value === value) {
+        return currentNode
+      }
+      currentNode = currentNode.next
+    }
+    return null
+  }
+
   // NOTE: valueにマッチする値は全て削除
   public delete(value: any): ILinkedListNode | null {
     if (!this.head) return null
@@ -85,34 +103,84 @@ export class LinkedList implements ILinkedList {
     return deletedNode
   }
 
-  // public find({ value, callback }: FindParams): ILinkedListNode | null {
-  //   if (!this.head) return null
-  //   let currentNode = this.head
-  //   while (currentNode) {
-  //     if (callback && callback(currentNode.value)) {
-  //       return currentNode
-  //     }
-  //     if (value !== null && currentNode.value === value) {
-  //       return currentNode
-  //     }
-  //     currentNode = currentNode.next
-  //   }
-  //   return null
-  // }
+  public deleteHead(): ILinkedListNode | null {
+    if (!this.head) {
+      return null
+    }
 
-  // public toArray(): ILinkedListNode[] {
-  //   const nodes = []
-  //   let currentNode = this.head
-  //   while (currentNode) {
-  //     nodes.push(currentNode)
-  //     currentNode = currentNode.next
-  //   }
-  //   return nodes
-  // }
+    const deletedHead = this.head
+    if (this.head.next) {
+      this.head = this.head.next
+    } else {
+      // this.head.nextがない。つまり値が一つしかない連結リスト
+      this.head = null
+      this.tail = null
+    }
+    return deletedHead
+  }
 
-  public toString(callback?: () => any): string {
+  public deleteTail(): ILinkedListNode | null {
+    const deletedTail = this.tail
+    // NOTE: 連結リストに値が一つしかない or 連結リストがない
+    if (this.head === this.tail) {
+      this.head = null
+      this.tail = null
+      return deletedTail
+    }
+
+    let currentNode = this.head
+    while (currentNode.next) {
+      if (!currentNode.next.next) {
+        currentNode.next = null
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    this.tail = currentNode
+    return deletedTail
+  }
+
+  public toArray(): ILinkedListNode[] {
+    const nodes = []
+    let currentNode = this.head
+    while (currentNode) {
+      nodes.push(currentNode)
+      currentNode = currentNode.next
+    }
+    return nodes
+  }
+
+  public fromArray(array: any[]): ILinkedList {
+    array.forEach(value => this.append(value))
+    return this
+  }
+
+  public reverse(): ILinkedList {
+    let currentNode = this.head
+    let previousNode = null
+    let nextNode = null
+
+    while (currentNode) {
+      nextNode = currentNode.next
+      currentNode.next = previousNode
+      previousNode = currentNode
+      currentNode = nextNode
+    }
+    this.tail = this.head
+    this.head = previousNode
+    return this
+  }
+
+  public toString(callback?: (v: any) => any): string {
     return this.toArray()
       .map(node => node.toString(callback))
       .toString()
   }
 }
+
+const linkedList = new LinkedList()
+linkedList
+  .append(1)
+  .append(2)
+  .append(3)
+linkedList.reverse()
