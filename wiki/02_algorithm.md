@@ -47,7 +47,7 @@
 - **検索**
   - [x] `B` [線形探索](../src/algorithm/search/linear/index.ts)
   - [ ] `B` ジャンプ検索 (or Block Search) - ソートされた配列で検索
-  - [ ] `B` バイナリ検索 - ソートされた配列で検索
+  - [x] `B` [バイナリ検索 - ソートされた配列で検索](../src/algorithm/search/binary/index.ts)
   - [ ] `B` 補間探索 - 一様分布のソート配列で検索する
 - **並べ替え**
   - [x] `B` [バブルソート](../src/algorithm/sort/bubble/index.ts)
