@@ -2,7 +2,7 @@ import assert = require('assert')
 
 import { binarySearch } from '..'
 
-describe('バイナリサーチ', () => {
+describe('二分探索', () => {
   it('ソートされた配列から値を検索できること', () => {
     assert.equal(binarySearch([], 1), null)
     assert.equal(binarySearch([2], 1), null)

@@ -10,7 +10,7 @@
 `B` - 初心者  
 `A` - 上級
 
-- [x] `B` 連結リスト
+- [x] `B` [連結リスト](../src/dataStructure/linkedList/index.ts)
 - [ ] `B` 二重リンクリスト
 - [ ] `B` キュー
 - [ ] `B` スタック

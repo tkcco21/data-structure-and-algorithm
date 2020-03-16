@@ -45,14 +45,14 @@
   - [ ] `A` 最長共通部分文字列
   - [ ] `A` 正規表現マッチング
 - **検索**
-  - [x] `B` [線形探索](../src/algorithm/search/linear/index.ts)
+  - [x] `B` [線形探索](../src/algorithm/search/01_linear/index.ts)
+  - [x] `B` [二分探索 - ソートされた配列で検索](../src/algorithm/search/02_binary/index.ts)
   - [ ] `B` ジャンプ検索 (or Block Search) - ソートされた配列で検索
-  - [x] `B` [バイナリ検索 - ソートされた配列で検索](../src/algorithm/search/binary/index.ts)
   - [ ] `B` 補間探索 - 一様分布のソート配列で検索する
 - **並べ替え**
-  - [x] `B` [バブルソート](../src/algorithm/sort/bubble/index.ts)
-  - [x] `B` [選択ソート](../src/algorithm/sort/selection/index.ts)
-  - [x] `B` [挿入ソート](../src/algorithm/sort/insertion/index.ts)
+  - [x] `B` [バブルソート](../src/algorithm/sort/01_bubble/index.ts)
+  - [x] `B` [選択ソート](../src/algorithm/sort/02_selection/index.ts)
+  - [x] `B` [挿入ソート](../src/algorithm/sort/03_insertion/index.ts)
   - [ ] `B` ヒープソート
   - [ ] `B` マージソート
   - [ ] `B` クイックソート -インプレースおよび非インプレース・インプリメンテーション

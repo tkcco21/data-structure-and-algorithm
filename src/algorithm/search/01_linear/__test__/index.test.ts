@@ -2,7 +2,7 @@ import assert = require('assert')
 
 import { linearSearch } from '..'
 
-describe('リニアサーチ（総あたり）', () => {
+describe('線形探索', () => {
   it('全てのマッチする数値の値を調べられること', () => {
     const array = [1, 2, 4, 6, 2]
 
